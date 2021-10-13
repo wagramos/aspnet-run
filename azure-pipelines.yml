@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: "90f7c783-812f-4cc2-b279-a88f20576845"
-  imageRepository: "wagramosaspnetrun"
+  imageRepository: "shoppingclient"
   containerRegistry: "warshoppingacr.azurecr.io"
   dockerfilePath: "$(Build.SourcesDirectory)/Shopping.Api/Dockerfile"
   tag: "$(Build.BuildId)"
@@ -35,6 +35,6 @@ stages:
               repository: $(imageRepository)
               dockerfile: $(dockerfilePath)
               containerRegistry: $(dockerRegistryServiceConnection)
-              buildContext: $(Build.SourcesDirectory)/Shopping
+              buildContext: $(Build.SourcesDirectory)
               tags: |
                 $(tag)
